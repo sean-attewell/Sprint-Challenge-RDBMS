@@ -8,7 +8,9 @@ module.exports = {
     getActions,
     addProject,
     addAction,
-    getProjectById
+    getProjectById,
+    getProjectWithId,
+    getActionsForProjectWithId
 };
 
 function getProjects() {
@@ -29,7 +31,9 @@ function addAction(action) {
         .insert(action)
 }
 
-// *** THIS KIND OF WORKS ***
+// *** THIS KIND OF WORKS 
+// *** Does not nest the actions in an array - just repeats
+// *** the project for each action
 // function getProjectById(id) {
 //     return db("projects")
 //         .leftJoin("actions", "projects.id", "=", "actions.project_id")
@@ -37,6 +41,8 @@ function addAction(action) {
 //         .where({ "projects.id": id })
 // }
 
+
+// *** The lengthy Luis method ***
 function intToBoolean(int) {
     return int === 1 ? true : false;
 }
@@ -89,4 +95,24 @@ function getProjectById(id) {
     return query.then(projects => {
         return projects.map(project => projectToBody(project));
     });
+}
+
+// Chicken dinner
+// The much better Connor method:
+
+function getProjectWithId(id) {
+    return db("projects")
+        .where({ id });
+}
+
+function getActionsForProjectWithId(id) {
+    return db.select(
+        "actions.id",
+        "actions.action_name",
+        "actions.action_notes",
+        "actions.action_completed"
+        )
+        .from("projects")
+        .innerJoin("actions", "projects.id", "=", "actions.project_id")
+        .where("projects.id", "=", id);
 }
