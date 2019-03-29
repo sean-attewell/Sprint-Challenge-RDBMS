@@ -56,16 +56,17 @@ server.post('/api/actions', (req, res) => {
 });
 
 // get project by ID and array of related actions
+// I think the helper function breaks if id doesn't exist so falls into catch
 server.get('/api/projects/:id', async (req, res) => {
     try {
         const project = await db.getProjectById(req.params.id);
-        if (project.length) {
+        if (project.id === Number(req.params.id)) {
             res.status(200).json(project);
         } else {
             res.status(404).json({ message: `id ${req.params.id} doesn't exist ` })
         }
     } catch (error) {
-        res.status(500).json({ error });
+        res.status(500).json({ message: `id ${req.params.id} doesn't exist ` });
     }
 });
 
