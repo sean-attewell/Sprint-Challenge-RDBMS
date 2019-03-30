@@ -1,5 +1,5 @@
 # Sprint Challenge: RDBMS and SQL - Projects & Actions
-
+<!-- edit -->
 This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project.
 
 This Sprint explored Adding Data Persistence to Web APIs and you were taught the following modules: Introduction to Relational Databases and SQL, Inserting and Modifying Data, Querying Data; Migrations and Seeding and Introduction to Data Modeling.
@@ -33,26 +33,38 @@ This will be akin to the Web API that you built in the last sprint, only this ti
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. Explain the difference between `RDBMS` and `SQL`.
+
+A Relational DataBase Management Systems (RDBMS) is a collection of programs that enable users to create, update, administer and otherwise interact with a relational database. Most commercial RDBMS use Structured Query Language (SQL) to access the database, although SQL was invented after the initial development of the relational model and is not necessary for its use. SQL is a standard but most RDBMS vendors add extra features not present in the standard. 
+
 1. Why do tables need a `primary key`?
+
+To uniquely identify records (rows in the table). This also makes tables easily joinable.
+
 1. What is the name given to a table column that references the primary key on another table.
+
+A foreign key.
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
+
+We need a third table that holds foreign keys that reference the primary key on each of the related tables.
+
 
 ## Project Set Up
 
 Follow these steps for starting your project.
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [X] Create a forked copy of this project.
+- [X] Add your project manager as collaborator on Github.
+- [X] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [X] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [X] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [X] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge `<firstName-lastName>` Branch into master (student's Repository). **Please don't merge your own pull request**
-- [ ] Add your project manager as a reviewer on the pull-request
-- [ ] Your project manager will count the project as complete by merging the branch back into master.
+- [X] Submit a Pull-Request to merge `<firstName-lastName>` Branch into master (student's Repository). **Please don't merge your own pull request**
+- [X] Add your project manager as a reviewer on the pull-request
+- [X] Your project manager will count the project as complete by merging the branch back into master.
 
 ## Minimum Viable Product
 
